@@ -973,7 +973,7 @@ s   *
    */
   void openWritingPipe(uint64_t address);
 
-private:
+public:
 
   /**
    * @name Low-level internal interface.

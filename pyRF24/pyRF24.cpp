@@ -294,6 +294,7 @@ BOOST_PYTHON_MODULE(RF24){
         .def("openReadingPipe", (void ( ::RF24::* )( ::uint8_t,::uint64_t ) )( &::RF24::openReadingPipe), (bp::arg("number"), bp::arg("address")))    
         .def("openWritingPipe", &openWritingPipe_wrap, (bp::arg("address")))    
         .def("openWritingPipe", (void ( ::RF24::* )( ::uint64_t ) )( &::RF24::openWritingPipe), ( bp::arg("address") ) )    
+        .def("setPayloadSize", &RF24::setPayloadSize, (bp::arg("size")))    
         .def("powerDown", &RF24::powerDown)    
         .def("powerUp", &RF24::powerUp)    
         .def("printDetails", &RF24::printDetails)

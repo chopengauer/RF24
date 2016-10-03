@@ -450,6 +450,7 @@ uint8_t RF24::getChannel()
 void RF24::setPayloadSize(uint8_t size)
 {
   payload_size = rf24_min(size,32);
+  write_register(RX_PW_P0,payload_size);
 }
 
 /****************************************************************************/
@@ -1178,7 +1179,8 @@ void RF24::openReadingPipe(uint8_t child, uint64_t address)
 /****************************************************************************/
 void RF24::setAddressWidth(uint8_t a_width){
 
-	if(a_width -= 2){
+	if(a_width > 1){
+		a_width -= 2;
 		write_register(SETUP_AW,a_width%4);
 		addr_width = (a_width%4) + 2;
 	}else{
